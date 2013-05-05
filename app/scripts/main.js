@@ -1,28 +1,26 @@
 /*global require*/
-'use strict';
-
-require.config({
-    shim: {
-        underscore: {
-            exports: '_'
-        },
-        backbone: {
-            deps: [
-                'underscore',
-                'jquery'
-            ],
-            exports: 'Backbone'
-        },
-    },
-    paths: {
-        jquery: '../components/jquery/jquery',
-        backbone: '../components/backbone-amd/backbone',
-        underscore: '../components/underscore-amd/underscore',
-    }
-});
-
 require([
-    'backbone'
-], function (Backbone) {
+    'jquery',
+    'underscore',
+    'backbone',
+    'helpers/ajax',
+    'collections/BookCollection'
+], function ($, _, Backbone, Ajax, BookCollection) {
+    'use strict';
+
     Backbone.history.start();
+
+    var addBook = function (bookData) {
+            var book = new Book(bookData);
+        },
+
+        handleData = function (response) {
+            books = new BookCollection();
+            books.set(books.parse(response.books));
+            console.log(books.models);
+        },
+
+        books;
+
+    Ajax.get('books').then(handleData);
 });
