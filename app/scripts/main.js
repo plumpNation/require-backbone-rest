@@ -4,16 +4,13 @@ require([
     'backbone',
     'collections/BookCollection',
     'views/BookView'
-], function ($, Backbone, BookCollection) {
+], function ($, Backbone, BookCollection, BookView) {
     'use strict';
 
-    Backbone.history.start();
-
-    var addBook = function (bookData) {
-            var book = new Book(bookData);
-        },
-
-        books = new BookCollection();
+    var books = new BookCollection(),
+        BookView = new BookView({'el': '#content-container'});
 
     books.fetch();
+
+    Backbone.history.start();
 });

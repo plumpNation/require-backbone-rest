@@ -8,22 +8,21 @@ define([
 
     var BookView = Backbone.View.extend({
 
-            initialize: function () {
-                this.template = Mustache.compile(Template);
-                debug.log('EventView init');
-            },
+        initialize: function () {
+            this.template = Mustache.compile(Template);
+        },
 
-            render: function () {
-                var view = this,
-                    rendered;
+        render: function () {
+            var view = this,
+                rendered;
 
-                rendered = this.template(view.template, view.model.toJSON());
-                $(view.el).html(rendered);
+            rendered = this.template(view.template, view.model.toJSON());
+            $(view.el).html(rendered);
 
-                debug.log('EventView rendered');
-                return view;
-            }
-        });
+            debug.log('EventView rendered');
+            return view;
+        }
+    });
 
     return BookView;
 });
