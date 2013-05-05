@@ -16,7 +16,9 @@ define([
             var view = this,
                 rendered;
 
-            rendered = this.template(view.template, view.model.toJSON());
+            rendered = view.template(view.model.toJSON());
+            console.log('rendering');
+            console.log(rendered);
             $(view.el).html(rendered);
 
             debug.log('EventView rendered');
