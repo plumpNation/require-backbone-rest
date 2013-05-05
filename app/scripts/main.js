@@ -1,11 +1,10 @@
 /*global require*/
 require([
     'jquery',
-    'underscore',
     'backbone',
-    'helpers/ajax',
-    'collections/BookCollection'
-], function ($, _, Backbone, Ajax, BookCollection) {
+    'collections/BookCollection',
+    'views/BookView'
+], function ($, Backbone, BookCollection) {
     'use strict';
 
     Backbone.history.start();
