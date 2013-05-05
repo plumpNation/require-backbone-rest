@@ -1,4 +1,4 @@
-/*global define*/
+/*global define, Config*/
 define([
     'backbone',
     'models/Book'

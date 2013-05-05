@@ -8,21 +8,21 @@ define([
 
     var AppRouter = Backbone.Router.extend({
             routes: {
-                "books/:id": "getBook",
-                "*actions": "defaultRoute" // Backbone will try match the route above first
+                'books/:id': 'getBook',
+                '*actions': 'defaultRoute' // Backbone will try match the route above first
             }
         }),
 
         // Instantiate the router
-        app_router = new AppRouter;
+        appRouter = new AppRouter();
 
-        app_router.on('route:getPost', function (id) {
-            // Note the variable in the route definition being passed in here
-        });
+    appRouter.on('route:getPost', function (id) {
+        console.log(id);
+    });
 
-        app_router.on('route:defaultRoute', function (actions) {
-            // do something
-        });
+    appRouter.on('route:defaultRoute', function (actions) {
+        console.log(actions);
+    });
 
     return AppRouter;
 });

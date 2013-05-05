@@ -2,17 +2,15 @@
 require([
     'jquery',
     'backbone',
-    'collections/BookCollection',
-    'views/BookView',
-    'routes/AppRouter'
-], function ($, Backbone, BookCollection, BookView, AppRouter) {
+    'views/BookView'
+], function ($, Backbone, BookCollection, BookView) {
     'use strict';
 
-    var books = new BookCollection(),
-        bookView = new BookView({'el': '#content-container'});
+    var bookView;
 
-    books.fetch();
-    bookView.render();
+    bookView = new BookView({
+        'el': '#content-container'
+    });
 
     Backbone.history.start();
 });
