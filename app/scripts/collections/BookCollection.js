@@ -6,7 +6,8 @@ define([
     'use strict';
 
     var BookCollection = Backbone.Collection.extend({
-        'model': Book
+        'model': Book,
+        'url': Config.Service.url + 'books'
     });
 
     return BookCollection;

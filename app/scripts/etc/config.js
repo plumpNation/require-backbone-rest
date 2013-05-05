@@ -1,3 +1,9 @@
+var Config = {
+    Service: {
+        url: 'http://localhost/dev/API/'
+    }
+};
+
 require = {
     baseUrl: './scripts',
     shim: {

@@ -14,13 +14,7 @@ require([
             var book = new Book(bookData);
         },
 
-        handleData = function (response) {
-            books = new BookCollection();
-            books.set(books.parse(response.books));
-            console.log(books.models);
-        },
+        books = new BookCollection();
 
-        books;
-
-    Ajax.get('books').then(handleData);
+    books.fetch();
 });
