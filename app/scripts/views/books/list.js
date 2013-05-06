@@ -12,21 +12,28 @@ define([
 
         el: $('#content-container'),
 
+        booklistTemplate: Mustache.compile(BookListTemplate),
+
         initialize: function () {
-            var compiledTemplate;
+            _.bindAll(this, 'render');
 
             Mustache.compilePartial('bookView', BookViewTemplate);
-            this.booklistTemplate = Mustache.compile(BookListTemplate);
 
             this.collection = new BooksCollection();
-            this.collection.add({id: 2, title: "Something"});
+            this.collection.fetch().done(this.render);
 
+            this.collection.on('reset', this.reset);
+        },
+
+        render: function () {
+            var renderedTemplate;
+
+            console.log('rendering book list');
             console.log(this.collection.models);
 
-            // Compile the booklistTemplate using Underscores micro-templating
-            compiledTemplate = this.booklistTemplate({'books': this.collection.models});
+            renderedTemplate = this.booklistTemplate({'books': this.collection.models});
 
-            this.$el.html(compiledTemplate);
+            this.$el.html(renderedTemplate);
         }
     });
 
