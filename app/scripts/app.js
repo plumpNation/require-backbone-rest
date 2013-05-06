@@ -1,10 +1,9 @@
-/*global require*/
 define([
-  'jquery',
-  'underscore',
-  'backbone',
-  'routes/AppRouter', // Request router.js
-], function ($, _, Backbone, Router) {
+    'backbone',
+    'routes/AppRouter', // Request router.js
+], function (Backbone, Router) {
+    'use strict';
+
     var routes,
 
         initialize = function () {
