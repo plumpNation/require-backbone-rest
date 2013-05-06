@@ -4,7 +4,7 @@ define([
     'backbone',
     'collections/books',
     'text!templates/books/list.mustache'
-], function (Mustache, Backbone, Books, Template) {
+], function (Mustache, Backbone, BooksCollection, Template) {
     'use strict';
 
     var BookListView = Backbone.View.extend({
@@ -19,8 +19,12 @@ define([
             this.collection = new BooksCollection();
             this.collection.add({id: 2, title: "Something"});
 
+            console.log(this.collection.models);
+
             // Compile the template using Underscores micro-templating
             compiledTemplate = this.template({'books': this.collection.models});
+
+            console.log(compiledTemplate);
 
             this.$el.html(compiledTemplate);
         }

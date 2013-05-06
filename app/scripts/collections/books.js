@@ -1,12 +1,12 @@
 /*global define, Config*/
 define([
     'backbone',
-    'models/Book'
-], function (Backbone, Book) {
+    'models/book'
+], function (Backbone, BookModel) {
     'use strict';
 
     var Books = Backbone.Collection.extend({
-        'model': Book,
+        'model': BookModel,
         'url': Config.Service.url + 'books',
         // Save all of the todo items under the `"todos"` namespace.
         // 'localStorage': new Backbone.LocalStorage('todos-backbone')

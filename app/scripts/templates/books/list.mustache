@@ -1,1 +1,5 @@
-<ul class="books-collection collection"></ul>
+<ul class="books-collection collection">
+    {{#books}}
+    <li class="books-collection-item book-item collection-item">{{attributes.id}}:{{attributes.title}}</li>
+    {{/books}}
+</ul>
