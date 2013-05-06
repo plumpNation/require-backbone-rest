@@ -16,6 +16,8 @@ define([
         initialize: function () {
             var compiledTemplate;
 
+            console.log('initialize Books view');
+
             this.collection = new BooksCollection();
             this.collection.add({id: 2, title: "Something"});
 

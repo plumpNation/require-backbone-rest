@@ -3,38 +3,29 @@ define([
     'underscore',
     'backbone',
     'views/books/list'
-], function ($, _, Backbone, Session, BookListView) {
+], function ($, _, Backbone, BookListView) {
 
     var AppRouter = Backbone.Router.extend({
-            routes: {
+            'routes': {
                 // Define some URL routes
-                '/projects': 'showProjects',
-                '/users': 'showUsers',
+                '/books': 'showBooks',
 
                 // Default
                 '*actions': 'defaultAction'
-            }
-        }),
+            },
 
-        initialize = function () {
-            var app_router = new AppRouter;
-
-            app_router.on('showBooks', function () {
+            'showBooks': function () {
+                console.log('show books action');
                 // Call render on the module we loaded in via the dependency array
                 // 'views/projects/list'
                 var bookListView = new BookListView();
-                bookListView.render();
-            });
+                bookListView.initialize();
+            },
 
-            app_router.on('defaultAction', function(actions){
-                // We have no matching route, lets just log what the URL was
-                console.log('No route:', actions);
-            });
+            'defaultAction': function () {
+                console.log('default action');
+            }
+        });
 
-            Backbone.history.start();
-        };
-
-    return {
-        'initialize': initialize
-    };
+    return AppRouter;
 });

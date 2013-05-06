@@ -10,6 +10,9 @@ define([
         'url': Config.Service.url + 'books',
         // Save all of the todo items under the `"todos"` namespace.
         // 'localStorage': new Backbone.LocalStorage('todos-backbone')
+        initialize: function () {
+            console.log('initialize Book collection');
+        }
     });
 
     return Books;
