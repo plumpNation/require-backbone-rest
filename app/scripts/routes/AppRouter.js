@@ -1,28 +1,40 @@
-/*global define*/
 define([
     'jquery',
+    'underscore',
     'backbone',
-], function ($, Backbone) {
-
-    'use strict';
+    'views/books/list'
+], function ($, _, Backbone, Session, BookListView) {
 
     var AppRouter = Backbone.Router.extend({
             routes: {
-                'books/:id': 'getBook',
-                '*actions': 'defaultRoute' // Backbone will try match the route above first
+                // Define some URL routes
+                '/projects': 'showProjects',
+                '/users': 'showUsers',
+
+                // Default
+                '*actions': 'defaultAction'
             }
         }),
 
-        // Instantiate the router
-        appRouter = new AppRouter();
+        initialize = function () {
+            var app_router = new AppRouter;
 
-    appRouter.on('route:getPost', function (id) {
-        console.log(id);
-    });
+            app_router.on('showBooks', function () {
+                // Call render on the module we loaded in via the dependency array
+                // 'views/projects/list'
+                var bookListView = new BookListView();
+                bookListView.render();
+            });
 
-    appRouter.on('route:defaultRoute', function (actions) {
-        console.log(actions);
-    });
+            app_router.on('defaultAction', function(actions){
+                // We have no matching route, lets just log what the URL was
+                console.log('No route:', actions);
+            });
 
-    return AppRouter;
+            Backbone.history.start();
+        };
+
+    return {
+        'initialize': initialize
+    };
 });

@@ -5,6 +5,8 @@ var Config = {
         }
     },
 
+    App = {},
+
     require = {
         baseUrl: './scripts',
         shim: {
