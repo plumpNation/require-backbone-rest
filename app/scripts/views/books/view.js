@@ -16,7 +16,8 @@ define([
         initialize: function (bookId) {
             _.bindAll(this, 'render');
 
-            this.book = new BookModel(bookId);
+            this.book = new BookModel();
+            this.book.url += bookId;
 
             this.book.fetch().done(this.render);
         },

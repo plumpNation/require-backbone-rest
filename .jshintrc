@@ -19,8 +19,11 @@
     "strict": true,
     "trailing": true,
     "smarttabs": true,
+    "maxcomplexity": 10,
     "globals": {
         "define": false,
-        "require": false
+        "require": false,
+        "_": true,
+        "Config": true
     }
 }

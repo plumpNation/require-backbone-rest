@@ -4,6 +4,11 @@ body {
     background: #fafafa;
 }
 
+.submit-button {
+    @extend .btn;
+    @extend .btn-success;
+}
+
 .hero-unit {
     margin: 50px auto 0 auto;
     width: 300px;

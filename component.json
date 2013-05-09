@@ -6,7 +6,6 @@
     "requirejs": "~2.1.5",
     "requirejs-text": "~2.0.5",
     "backbone-amd": "~1.0.0",
-    "underscore-amd": "~1.4.4",
     "mustache": "~0.7.2",
     "lodash": "~1.2.1"
   },
