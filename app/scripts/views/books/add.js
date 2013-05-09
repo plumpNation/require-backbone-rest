@@ -29,7 +29,7 @@ define([
          */
         initialize: function () {
             console.info('Initialising book add view');
-            _.bindAll(this, 'saveToModel');
+            _.bindAll(this, 'saveToModel', 'saveSuccess');
             this.render();
         },
 
@@ -52,6 +52,9 @@ define([
         saveSuccess: function (response) {
             console.info('Successful POST');
             console.info(response.message);
+            if (response.id) {
+                this.goTo('book/' + response.id);
+            }
         },
 
         /**
@@ -115,8 +118,6 @@ define([
             } else {
                 console.error('Something has gone hideously wrong.');
             }
-
-
         }
     });
 
