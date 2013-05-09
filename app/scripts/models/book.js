@@ -50,7 +50,7 @@ define([
          *
          * @return {void}
          */
-        initialize: function (options) {
+        initialize: function () {
             console.info('Initialising book model');
         }
     });
