@@ -21,15 +21,13 @@ define([
 
             this.collection = new BooksCollection();
             this.collection.fetch().done(this.render);
-
-            this.collection.on('reset', this.reset);
         },
 
         render: function () {
             var renderedTemplate;
 
-            console.log('rendering book list');
-            console.log(this.collection.models);
+            console.info('rendering book list');
+            console.info(this.collection.models);
 
             renderedTemplate = this.booklistTemplate({'books': this.collection.models});
 

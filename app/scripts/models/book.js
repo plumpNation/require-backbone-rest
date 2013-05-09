@@ -8,6 +8,12 @@ define([
         defaults: {
             'id': null,
             'title': 'Untitled'
+        },
+
+        url: Config.Books.Api,
+
+        initialize: function (bookId) {
+            this.url += bookId;
         }
     });
 

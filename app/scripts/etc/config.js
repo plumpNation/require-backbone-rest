@@ -1,7 +1,8 @@
 /*jshint -W079, unused:false */
-var Config = {
-        Service: {
-            url: 'http://localhost/dev/API/'
+var _serviceUrl = 'http://localhost/dev/API/',
+    Config = {
+        Books: {
+            Api: _serviceUrl + 'books/'
         }
     },
 

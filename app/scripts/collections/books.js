@@ -7,7 +7,7 @@ define([
 
     var Books = Backbone.Collection.extend({
         'model': BookModel,
-        'url': Config.Service.url + 'books',
+        'url': Config.Books.Api,
         // Save all of the todo items under the `"todos"` namespace.
         // 'localStorage': new Backbone.LocalStorage('todos-backbone')
         initialize: function () {
